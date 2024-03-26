@@ -20,7 +20,7 @@
 			overflow: hidden;
 			width: 100%;
 			height: 100%;
-			background-color: rgba(0, 0, 0, 0);;
+			background-color: rgba(0,0,0,0);
 		}
 
 		#splash {
@@ -50,8 +50,7 @@
 			transition: all 0.5s;
 		}
 	</style>
-	<script type="text/javascript" src="https://game-cdn.poki.com/scripts/v2/poki-sdk.js"></script>
-	<script src="https://4941175b-dd46-4519-916e-f15b5d1bf53b.poki-gdn.com/710f89a2-759f-437d-b8a6-7ecd74080c0a/js/loader.js"></script>
+	<script src="dist/loader.js"></script>
 </head>
 
 <body>
@@ -68,42 +67,22 @@
 			swfName = 'default.swf';
 		}
 		const config = {
-    "key": "fpa3",
-    "title": "FPAWorld 3",
-    "stageScaleMode": "showAll",
-    "pokiSDK": true,
-    "debugPoki": false,
-    "showFPS": false,
-    "debug": false,
-    "splash": "",
-    "start": null,
-    "width": 720,
-    "height": 480,
-    "x": 0,
-    "y": 0,
-    "w": "100%",
-    "h": "100%",
-    "stageAlign": null,
-    "progressParserWeigth": 1,
-    "progress": {
-        "direction": "lr",
-        "back": "#000",
-        "line": "#ca0000",
-        "rect": [
-            0.61,
-            0.86,
-            0.28,
-            0.015
-        ]
-    },
-    "box2dVersion": "none",
-    "skipFramesOfScene": null,
-    "buttonPokiSDKActions": null,
-    "retryButtonIDS": null,
-    "retryButtonAction": null,
-    "actionOnStop": null,
-    "actionWhenRetryButtonEncountered": null,
-			runtime: ['https://4941175b-dd46-4519-916e-f15b5d1bf53b.poki-gdn.com/710f89a2-759f-437d-b8a6-7ecd74080c0a/js/FPAWorld.js'],
+			width: 550,
+			height: 400,
+			splash: 'example/splash.jpg',
+		    "progress": {
+		        "direction": "lr",
+		        "back": "#130d02",
+		        "line": "#f29f01",
+		        "rect": [
+		            0.25,
+		            0.77,
+		            0.5,
+		            0.01
+		        ]
+		    },
+			baseUrl: 'dist',
+			runtime: ['dist/runtime.js'],
 			binary: [{
 				path: swfName,
 				resourceType: 'GAME',
@@ -126,29 +105,6 @@
 						hide && hide() || window.swfParseComplete && window.swfParseComplete();
 					});
 			})
-		});
-					PokiSDK.setDebug(config.debugPoki);
-
-			Loader.init(config);
-
-			let onPokiInitComplete = (adBlocked) => {
-
-				PokiSDK.adBlocked = adBlocked;
-				PokiSDK.gameLoadingStart();
-
-				Loader.runGame((fill) => {
-					PokiSDK.gameLoadingProgress({
-						percentageDone: fill,
-						kbLoaded: 0,
-						kbTotal: 0,
-						fileNameLoaded: "",
-						filesLoaded: 0,
-						filesTotal: 0
-					});
-				}, (instance) => {
-					PokiSDK.gameLoadingFinished();
-				})
-			}
 		});
 	</script>
 </body>
